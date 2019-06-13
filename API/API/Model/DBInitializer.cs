@@ -7,7 +7,7 @@ namespace API.Model
 {
     public class DBInitializer
     {
-        public static void Initialize(SwitchesContext context)
+        public static void Initialize(MountainContext context)
         {
             context.Database.EnsureCreated();
 

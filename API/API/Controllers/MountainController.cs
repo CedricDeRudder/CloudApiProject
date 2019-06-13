@@ -7,10 +7,10 @@ using API.Model;
 
 namespace API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class MountainController : Controller
     {
-        [Route("api/[controller]")]
-        [ApiController]
         MountainContext context;
         public MountainController(MountainContext ctxt)
         {
@@ -18,9 +18,9 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public List<Mountain> GetSwitches(int PageNumber = 0, int PageSize = 5)
+        public List<Mountain> GetMountains(int PageNumber = 0, int PageSize = 5)
         {
-            IQueryable<Mountain> query = context.Switches;
+            IQueryable<Mountain> query = context.Mountains;
 
             if (PageSize > 5) PageSize = 5;
             query = query.Skip(PageNumber * PageSize);
@@ -69,7 +69,7 @@ namespace API.Controllers
         [HttpPut]
         public IActionResult UpdateMountain([FromBody] Mountain updateMountain)
         {
-            var originalMountain = context.Switches.Find(updateMountain.Id);
+            var originalMountain = context.Mountains.Find(updateMountain.Id);
             if (originalMountain == null)
             {
                 return NotFound();

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace API.Model
 {
-    public class SwitchesContext : DbContext
+    public class MountainContext : DbContext
     {
-        public SwitchesContext(DbContextOptions<SwitchesContext> options) : base(options)
+        public MountainContext(DbContextOptions<MountainContext> options) : base(options)
         {
         }
         public DbSet<Mountain> Mountains { get; set; }
